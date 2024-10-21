@@ -1,29 +1,25 @@
 from pages.base_page import BasePage
-from src.helpers import TestData
-from src.locators import StartPageLocators, LogInLocators, PersonalAccountLocators
+from data import TestData
+from src.locators import PersonalAccountLocators
 import allure
 
 class PersonalAccountPage(BasePage):
 
     @allure.step('Кликаем с ожиданием на кнопку «Личный кабинет»')
     def click_personal_account(self):
-        self.click_element_with_wait(StartPageLocators.PERSONAL_ACCOUNT_BUTTON)
+        self.click_element_with_wait(PersonalAccountLocators.PERSONAL_ACCOUNT_BUTTON)
 
     @allure.step('Вводим почту')
     def set_email(self):
-        self.set_text(LogInLocators.NAME_FIELD, TestData.test_email)
+        self.set_text(PersonalAccountLocators.NAME_FIELD, TestData.test_email)
 
     @allure.step('Вводим пароль')
     def set_password(self):
-        self.set_text(LogInLocators.PASSWORD_FIELD, TestData.test_password)
+        self.set_text(PersonalAccountLocators.PASSWORD_FIELD, TestData.test_password)
 
     @allure.step('Кликаем с ожиданием на кнопку «Войти»')
     def click_log_in_button(self):
-        self.click_element_with_wait(LogInLocators.LOG_IN_BUTTON)
-
-    @allure.step('Ожидаем кликабельности кнопки «Оформить заказ»')
-    def wait_make_order(self):
-        self.wait_for_clickable_element(StartPageLocators.CONFIRM_ORDER)
+        self.click_element_with_wait(PersonalAccountLocators.LOG_IN_BUTTON)
 
     @allure.step('Находим с ожиданием кнопку «Личный кабинет»')
     def find_profile_button(self):
@@ -39,7 +35,7 @@ class PersonalAccountPage(BasePage):
 
     @allure.step('Находим с ожиданием кнопку «Войти»')
     def find_enter_button(self):
-        return self.find_element_with_wait(LogInLocators.LOG_IN_BUTTON)
+        return self.find_element_with_wait(PersonalAccountLocators.LOG_IN_BUTTON)
 
     @allure.step('Логинимся на сайте')
     def log_in(self):
@@ -48,3 +44,10 @@ class PersonalAccountPage(BasePage):
         self.set_password()
         self.click_log_in_button()
 
+    @allure.step('Получаем номер заказа в «Истории заказов»')
+    def get_last_order_number(self):
+        return self.find_element_with_wait(PersonalAccountLocators.LAST_ORDER_NUMBER).text
+
+    @allure.step('Ожидаем кликабельности кнопки «Личный Кабинет»')
+    def wait_for_personal_account_button(self):
+        self.wait_for_clickable_element(PersonalAccountLocators.PERSONAL_ACCOUNT_BUTTON)

@@ -4,10 +4,6 @@ import allure
 
 class StartPage(BasePage):
 
-    @allure.step('Ожидаем кликабельности кнопки «Личный Кабинет»')
-    def wait_for_personal_account_button(self):
-        self.wait_for_clickable_element(StartPageLocators.PERSONAL_ACCOUNT_BUTTON)
-
     @allure.step('Кликаем с ожиданием на кнопку «Лента Заказов»')
     def click_order_feed_button(self):
         self.click_element_with_wait(StartPageLocators.ORDER_FEED_BUTTON)
@@ -54,3 +50,18 @@ class StartPage(BasePage):
         self.click_confirm_order()
         self.close_ingredient_details()
 
+    @allure.step('Кликаем на «Ленту заказов»')
+    def click_history_button(self):
+        self.click_element(StartPageLocators.ORDER_FEED_BUTTON)
+
+    @allure.step('Кликаем с ожиданием на «Ленту заказов»')
+    def click_history_button_with_wait(self):
+        self.click_element_with_wait(StartPageLocators.ORDER_FEED_BUTTON)
+
+    @allure.step('Ожидаем кликабельности кнопки «Оформить заказ»')
+    def wait_make_order(self):
+        self.wait_for_clickable_element(StartPageLocators.CONFIRM_ORDER)
+
+    @allure.step('Кликаем с ожиданием на кнопку «Войти в аккаунт»')
+    def click_enter_personal_account(self):
+        self.click_element_with_wait(StartPageLocators.ENTER_ACCOUNT_BUTTON)

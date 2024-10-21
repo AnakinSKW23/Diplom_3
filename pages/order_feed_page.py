@@ -1,5 +1,5 @@
 from pages.base_page import BasePage
-from src.locators import StartPageLocators, OrderFeedLocators, PersonalAccountLocators
+from src.locators import OrderFeedLocators
 import allure
 
 class OrderFeedPage(BasePage):
@@ -16,14 +16,6 @@ class OrderFeedPage(BasePage):
     def get_order_numbers(self):
         return self.find_element_with_wait(OrderFeedLocators.ORDER_NUMBERS).text
 
-    @allure.step('Получаем номер заказа в «Истории заказов»')
-    def get_last_order_number(self):
-        return self.find_element_with_wait(PersonalAccountLocators.LAST_ORDER_NUMBER).text
-
-    @allure.step('Кликаем на «Ленту заказов»')
-    def click_history_button(self):
-        self.click_element(StartPageLocators.ORDER_FEED_BUTTON)
-
     @allure.step('Получаем количество заказов за все время')
     def get_all_time_numbers_of_orders(self):
         return self.get_text(OrderFeedLocators.ORDERS_COUNTER_ALL_TIME)
@@ -31,10 +23,6 @@ class OrderFeedPage(BasePage):
     @allure.step('Получаем количество заказов за сегодня')
     def get_today_numbers_of_orders(self):
         return self.get_text(OrderFeedLocators.ORDERS_COUNTER_TODAY)
-
-    @allure.step('Кликаем с ожиданием на «Ленту заказов»')
-    def click_history_button_with_wait(self):
-        self.click_element_with_wait(StartPageLocators.ORDER_FEED_BUTTON)
 
     @allure.step('Получаем номер заказа после обновления информации')
     def get_order_number_with_template(self):

@@ -1,17 +1,13 @@
 from pages.base_page import BasePage
-from src.locators import StartPageLocators, RecoveryPasswordLocators, LogInLocators
-from src.helpers import TestData
+from src.locators import RecoveryPasswordLocators
+from data import TestData
 import allure
 
 class RecoveryPasswordPage(BasePage):
 
-    @allure.step('Кликаем с ожиданием на кнопку «Войти в аккаунт»')
-    def click_enter_personal_account(self):
-        self.click_element_with_wait(StartPageLocators.ENTER_ACCOUNT_BUTTON)
-
     @allure.step('Кликаем с ожиданием на кнопку «Восстановить пароль»')
     def click_recovery_button(self):
-        self.click_element_with_wait(LogInLocators.RECOVERY_BUTTON)
+        self.click_element_with_wait(RecoveryPasswordLocators.RECOVERY_BUTTON)
 
     @allure.step('Вводим почту')
     def set_text_email_field(self):

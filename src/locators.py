@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 class StartPageLocators:
 
     ENTER_ACCOUNT_BUTTON = (By.XPATH, ".//button[text()='Войти в аккаунт']")
-    PERSONAL_ACCOUNT_BUTTON = (By.XPATH, ".//p[text()='Личный Кабинет']")
     ORDER_FEED_BUTTON = (By.XPATH, ".//p[text()='Лента Заказов']")
     CONSTRUCTOR_BUTTON = (By.XPATH, ".//p[text()='Конструктор']")
     CREATE_BURGER = (By.XPATH, ".//h1[text()='Соберите бургер']")
@@ -15,14 +14,6 @@ class StartPageLocators:
     CONFIRM_ORDER = (By.XPATH, ".//button[text()='Оформить заказ']")
     ORDER_IS_CREATING = (By.XPATH, ".//p[text()='Ваш заказ начали готовить']")
 
-class LogInLocators:
-
-    RECOVERY_BUTTON = (By.XPATH, ".//a[text()='Восстановить пароль']")
-    NAME_FIELD = (By.XPATH, ".//input[@name='name']")
-    PASSWORD_FIELD = (By.XPATH, ".//input[@name='Пароль']")
-    LOG_IN_BUTTON = (By.XPATH, ".//button[text()='Войти']")
-
-
 class RecoveryPasswordLocators:
 
     BUTTON_RECOVERY = (By.XPATH, ".//button[text()='Восстановить']")
@@ -31,6 +22,7 @@ class RecoveryPasswordLocators:
     SHOW_PASSWORD_BUTTON = (By.XPATH, ".//div[@class='input__icon input__icon-action']")
     ACTIVE_PASSWORD = (By.CSS_SELECTOR, '.input.input_status_active')
     RESET_BUTTON = (By.XPATH, ".//button[text()='Сохранить']")
+    RECOVERY_BUTTON = (By.XPATH, ".//a[text()='Восстановить пароль']")
 
 class PersonalAccountLocators:
 
@@ -38,6 +30,10 @@ class PersonalAccountLocators:
     HISTORY_BUTTON = (By.XPATH, ".//a[text()='История заказов']")
     EXIT_BUTTON = (By.XPATH, ".//button[text()='Выход']")
     LAST_ORDER_NUMBER = (By.XPATH, './/li[last()]/a[contains(@href, "order-history")]/*/p[1]')
+    PERSONAL_ACCOUNT_BUTTON = (By.XPATH, ".//p[text()='Личный Кабинет']")
+    NAME_FIELD = (By.XPATH, ".//input[@name='name']")
+    PASSWORD_FIELD = (By.XPATH, ".//input[@name='Пароль']")
+    LOG_IN_BUTTON = (By.XPATH, ".//button[text()='Войти']")
 
 class OrderFeedLocators:
     FIRST_ORDER = (By.XPATH, './/*[contains(@class, "OrderHistory_link")]')
